@@ -19,79 +19,80 @@
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
+        <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/Footer-white.css">
+
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
         <style>
-        	body{margin:20px;}
         	h1, p, div.list-group{margin: 0 auto; padding:10px; text-align:center; width:100%;}
         	ul{padding:0px;}
         	ul li{list-style-type:none; margin:10px;}
         	a{text-decoration:none;}
+            .main-container{margin:20px;}
+            #myFooter{position:fixed; bottom:0; width:100%;}
+            #myFooter a{font-size:14px !important;}
         </style>
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+        <div class="main-container">
+            <h1>Perfect Education!</h1>
+            <!-- Add your site or application content here -->
+            <p>See the latest:</p>
 
-        <h1>Perfect Education!</h1>
-        <!-- Add your site or application content here -->
-        <p>See the latest:</p>
+            <div class="list-group">
+              <a href="https://lite-repo.github.io/lessons/fibonacci/" target="_blank" class="list-group-item">
+                The Golden Ratio
+              </a>
+              <a href="https://lite-repo.github.io/lessons/fibonacci/" target="_blank" class="list-group-item">
+                Fibonacci Spiral
+              </a>
+              <a href="https://lite-repo.github.io/lessons/Quadratic-Equations-Lesson/" target="_blank" class="list-group-item">
+                Quadratic Equations Lesson
+              </a>
+              <a href="https://lite-repo.github.io/lessons/Quadratic-Formula-Lesson/" target="_blank" class="list-group-item">
+                Quadratic Formula Lesson
+              </a>
+            </div>
 
-        <div class="list-group">
-          <a href="https://lite-repo.github.io/lessons/fibonacci/" target="_blank" class="list-group-item">
-            Fibonacci Spiral
-          </a>
-          <a href="https://lite-repo.github.io/lessons/Quadratic-Equations-Lesson/" target="_blank" class="list-group-item">
-            Quadratic Equations Lesson
-          </a>
-          <a href="https://lite-repo.github.io/lessons/Quadratic-Formula-Lesson/" target="_blank" class="list-group-item">
-            Quadratic Formula Lesson
-          </a>
-        </div>
-
-        <!--Footer-->
-        <footer class="page-footer blue center-on-small-only">
-
-            <!--Footer Links-->
-            <div class="container-fluid">
+            <<div class="container subscribe">
                 <div class="row">
-
-                    <!--First column-->
-                    <div class="col-md-6">
-                        <h5 class="title">Footer Content</h5>
-                        <p>Here you can use rows and columns here to organize your footer content.</p>
+                    <div class="span12">
+                        <div class="thumbnail center well well-small text-center">
+                            <h2>Keep up to date!</h2>
+                            
+                            <p>Subscribe to our weekly newsletter and stay tuned.</p>
+                            
+                            <form action="" method="post">
+                                <div class="input-prepend"><span class="add-on"><i class="icon-envelope"></i></span>
+                                    <input type="text" id="" name="" placeholder="your@email.com">
+                                </div>
+                                <br />
+                                <input type="submit" value="Subscribe!" class="btn btn-large" />
+                          </form>
+                        </div>    
                     </div>
-                    <!--/.First column-->
-
-                    <!--Second column-->
-                    <div class="col-md-6">
-                        <h5 class="title">Links</h5>
-                        <ul>
-                            <li><a href="#!">Link 1</a></li>
-                            <li><a href="#!">Link 2</a></li>
-                            <li><a href="#!">Link 3</a></li>
-                            <li><a href="#!">Link 4</a></li>
-                        </ul>
-                    </div>
-                    <!--/.Second column-->
                 </div>
             </div>
-            <!--/.Footer Links-->
-
-            <!--Copyright-->
-            <div class="footer-copyright">
-                <div class="container-fluid">
-                    © 2015 Copyright: <a href="https://www.MDBootstrap.com"> MDBootstrap.com </a>
-
-                </div>
+        </div>
+        <footer id="myFooter">
+            <div class="container">
+                <ul>
+                    <li><a href="#">Company Information</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Reviews</a></li>
+                    <li><a href="#">Terms of service</a></li>
+                </ul>
+            <p class="footer-copyright">© 2017 Copyright Text</p>
             </div>
-            <!--/.Copyright-->
-
+            <div class="footer-social">
+                <a href="#" class="social-icons"><i class="fa fa-facebook"></i></a>
+                <a href="#" class="social-icons"><i class="fa fa-google-plus"></i></a>
+                <a href="#" class="social-icons"><i class="fa fa-twitter"></i></a>
+            </div>
         </footer>
-        <!--/.Footer-->
 
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
