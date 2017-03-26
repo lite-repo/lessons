@@ -45,6 +45,22 @@
             <!-- Add your site or application content here -->
             <p>See the latest:</p>
 
+            <h2>Path to Calculus</h2>
+
+            <h3>Algebra</h3>
+            <div class="container_algebra"></div>
+            
+            <h2>Geometry</h2>
+            <div class="container_geometry"></div>
+
+            <h2>Trigonometry</h2>
+            <div class="container_trigonometry"></div>
+
+            <h2>Calculus</h2>
+            <div class="container_calculus"></div>
+
+            <h2>More Lessons</h2>
+
             <div class="list-group">
               <a href="https://lite-repo.github.io/lessons/golden-ratio/" target="_blank" class="list-group-item">
                 The Golden Ratio
@@ -96,7 +112,18 @@
                 <a href="#" class="social-icons"><i class="fa fa-twitter"></i></a>
             </div>
         </footer>
-
+        <script> 
+        $(document).ready(function(){
+            //algebra      
+            $('.container_algebra').load('https://lite-repo.github.io/lessons/algebra/index.html');
+            //geometry       
+            $('.container_geometry').load('https://lite-repo.github.io/lessons/geometry/index.html');
+            //trigonometry       
+            $('.container_trigonometry').load('https://lite-repo.github.io/lessons/trigonometry/index.html');
+            //calculus       
+            $('.container_calculus').load('https://lite-repo.github.io/lessons/calculus/index.html');
+        });
+        </script>
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
