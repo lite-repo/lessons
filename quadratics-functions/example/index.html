@@ -1,0 +1,118 @@
+<head>
+<style>
+body{font-family:Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif; text-align:center;}
+.MathJax_Display{display:inline !important; margin:0 !important;}
+#quadratic-update{text-align:center;}
+h1{margin:100px;}
+</style>
+<!--
+D3 V4
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/d3-color.v1.min.js"></script>
+<script src="function-plot.js"></script>
+
+-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+
+<script src="https://wzrd.in/standalone/function-plot@1.17.3"></script>
+</head>
+<body >
+
+<h1>
+Lets plug a, b and c into the formula:
+</h1>
+<!--
+Quadratic Equation Standard form: $$ax^2+bx+c$$
+
+
+MathJax: Quadratic Forumla: $$x={-b\pm\sqrt{b^2-4ac} \over 2a}$$
+-->
+
+<h2>
+$$x={-4\pm\sqrt{16-4*1*(-21)} \over 2}$$
+</h2>
+
+<h1>The solution will be x = 3 or x = -7</h1>
+<!--
+	<div id="quadratic-update"></div>
+  -->
+	<!--<button id="update" class="btn btn-primary">Update</button>-->
+</body>
+
+<script>
+/*
+var options = {
+  target: '#quadratic-update',
+  data: [{
+    fn: 'x'
+  }]
+};
+	functionPlot({
+	  title: 'y = x * x',
+	  target: '#quadratic-with-options',
+	  width: 580,
+	  height: 400,
+	  disableZoom: true,
+	  xAxis: {
+	    label: 'x - axis',
+	    domain: [-6, 6]
+	  },
+	  yAxis: {
+	    label: 'y - axis'
+	  },
+	  data: [{
+	    fn: 'x^2'
+	  }]
+	});
+*/
+var options = {
+  target: '#quadratic-update',
+  data: [{
+    fn: 'x^2 + 3x - 4'
+  }]
+};
+
+var option2 = {
+	target: '#quadratic-update',
+	data: [{
+		fn: 'x^2+4x-21=0'
+	}]
+};
+
+$('#update').click(function () {
+  if (!options.title) {
+
+  	console.log(options);
+    // add a title, a tip and change the function to y = x * x
+    options.title = 'Quadratic Function: y = x * x' ;
+    $(options.target).prepend("<h2>Quadratic Function: y = x * x</h2>");
+
+    options.tip = {
+      xLine: true,
+      yLine: true
+    };
+    options.data[0] = {
+      fn: 'x * x',
+      derivative: {
+        fn: '2 * x',
+        updateOnMouseMove: true
+      }
+    }
+  } else {
+    // remove the title and the tip
+    // update the function to be y = x
+    delete options.title;
+    delete options.tip;
+    options.data[0] =  {
+      fn: 'x'
+    }
+  }
+  functionPlot(options)
+})
+// initial plot
+functionPlot(options)
+</script>

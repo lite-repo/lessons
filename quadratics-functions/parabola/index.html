@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <!-- D3 V3.5.5
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+  -->
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script src="https://d3js.org/d3-axis.v1.min.js"></script>
+
+  <style>
+    body { margin:0;position:fixed;top:0;right:0;bottom:0;left:0; }
+    svg { width: 100%; height: 100%; }
+    path {
+      fill: none;
+      stroke: teal;
+    }
+    
+    .axis path, line {
+      stroke: #aaa;
+      shape-rendering: crispEdges;
+    }
+    
+    .axis text {
+      fill: #aaa;
+      font-size: 11px;
+    }
+
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+    }
+
+    .axis text {
+      font: 10px sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+
+
+    var margin = {top: 50, right: 50, bottom: 50, left: 50};
+    var width = 960 - margin.left - margin.right;
+    var height = 500 - margin.top - margin.bottom;
+
+    var zoom = d3.zoom()
+        .scaleExtent([1, 10])
+        .on("zoom", zoomed);
+
+    var svg = d3.select("body").append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+      .call(zoom);
+    vartransform = d3.zoomIdentity;;
+   
+    var g = svg.append("g");
+
+    var fn = function (x) {
+      return Math.pow(x, 2);
+    };
+
+    var x = d3.scaleLinear()
+      .range([0, width]);
+
+    var y = d3.scaleLinear()
+      .range([height, 0]);
+    
+    /* X-Axis
+    var xAxis = d3.svg.axis()
+      .scale(x);
+    */
+    var xAxis = d3.axisBottom(x)
+      .ticks(20);
+
+    /* Y-Axis
+    var yAxis = d3.svg.axis()
+      .orient('left')
+      .scale(y);
+    */
+    var yAxis = d3.axisLeft(y)
+      .ticks(20);
+
+    var line = d3.line()
+      //.interpolate('basis')
+      .curve(d3.curveNatural)
+      .x(function (d) {return x(d.x);})
+      .y(function (d) {return y(d.y);});
+
+    var data = d3.range(-20, 20).map(function (d) {
+      return {x:d, y:fn(d)};
+    });
+
+    x.domain(d3.extent(data, function (d) {return d.x;}));
+    y.domain([0, d3.max(data, function (d) {return d.y;})]);
+
+    svg.append('g')
+      .attr('class', 'axis')
+      .attr('transform', 'translate(0,' + height + ')')
+      .call(xAxis);
+
+    svg.append('g')
+      .attr('class', 'axis')
+      .attr('transform', 'translate(' + width/2 + ',0)')
+      .call(yAxis);
+
+    svg.append('path')
+      .datum(data)
+      .attr('d', line);
+
+    function zoomed() {
+      g.attr("transform", d3.event.transform);
+    }
+
+    function dragged(d) {
+      d3.select(this).attr("cx", d.x = d3.event.x).attr("cy", d.y = d3.event.y);
+    }
+
+  </script>
+</body>
