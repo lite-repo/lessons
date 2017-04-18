@@ -1,0 +1,9 @@
+body{
+	font-family:Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	background-color:white;
+}
+.MathJax_Display{
+	display:inline !important; 
+	margin:0 !important;
+}
+#quadratic-function{text-align:center;}

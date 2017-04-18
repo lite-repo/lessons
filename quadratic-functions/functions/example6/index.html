@@ -1,0 +1,28 @@
+<head>
+<link rel="stylesheet" type="text/css" href="../styles/main.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+
+<script src="https://wzrd.in/standalone/function-plot@1.17.3"></script>
+</head>
+<body>
+  <h1>$$f(x) = ax^2 + c$$</h1>
+	<div id="quadratic-function"></div>
+</body>
+
+<script>
+var options = {
+  target: '#quadratic-function',
+  data: [{
+    fn: 'ax^2 + c'
+  }]
+};
+
+// initial plot
+functionPlot(options)
+</script>
