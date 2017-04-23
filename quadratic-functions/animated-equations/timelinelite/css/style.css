@@ -1,0 +1,115 @@
+body, h1, h2, h3, p {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  color: #fff;
+}
+
+body {
+  background-color:#000;
+  text-align:center;
+}
+
+h1 {
+  position: relative;
+  margin-top: 10px;
+  font-size: 36px;
+  font-weight: normal;
+}
+
+h2 {
+  position: relative;
+  font-size: 22px;
+  font-weight: normal;
+  color: #cfcfcf;
+}
+
+
+.example-wrapper {
+  width: 600px;
+  height: auto;
+  -webkit-font-smoothing: antialiased;
+  color: black;
+  margin: 10px auto 10px;  
+  background-color: #333;
+  padding: 8px;
+}
+
+#equation {
+  position: relative;
+  width: 45%;
+  height: 60px;
+  /*
+  background: #90E500 url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/logo_transparent_1.png) no-repeat;
+  */
+  background-position: 0px 4px;
+  color: transparent;
+  font-family: Arial, Helvetica, sans-serif;
+  border-bottom: solid #333 10px;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float:left;
+}
+#terms-wrapper .term{
+  vertical-align:center;
+  color:white;
+  display:inline-block;
+}
+#bg {
+  position: absolute;
+  width: 800px;
+  height: 350px;
+}
+#content {
+  padding-left: 15px;
+  visibility: hidden;
+}
+#info {
+  margin-top: 20px;
+}
+#feature {
+  position: relative;
+  float: left;
+  z-index:1000;
+}
+#description {
+  position: relative;
+  float: left;
+  margin-left: 20px;
+  width: 290px;
+  font-size: 16px;
+  line-height: 24px;
+}
+#terms-wrapper {
+  text-align:center;
+  margin:20px 10px;
+}
+#terms-wrapper .term{
+  color:transparent;
+  font-size:26px;
+}
+#terms-wrapper img {
+  text-align:center;
+  position: relative;
+  margin-right: 20px;
+ 
+}
+button {
+  padding: 10px;
+  margin-top: 10px;
+}
+
+button:nth-child(1){
+  margin-left:10px;
+}
+
+#slider{
+  width: 580px;
+  margin:10px auto;
+  
+}
+
+.ui-widget-content {
+  background-color:rgba(255, 255, 255, 0.2);
+}
