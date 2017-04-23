@@ -28,12 +28,13 @@ tl.from(head, 0.5, {left:100, opacity:0})
 //add another tween immediately after
 
 //use position parameter "+=0.5" to schedule next tween 0.5 seconds after previous tweens end
+/*
 .from("i.f-of", 0.5, {x:-50, opacity:0}, "+=0.5")
 .from("i.co-a", 0.5, {y:50, opacity:0}, "+=0.5")
 .from("i.co-b", 0.5, {y:50, opacity:0}, "+=0.5")
 .from("i.plus", 0.5, {y:-50, opacity:0}, "+=0.5")
 .from("i.co-c", 0.5, {x:50, opacity:0}, "+=0.5")
-
+*/
 //test
 
 //use position parameter "-=0.5" to schedule next tween 0.25 seconds before previous tweens end.
