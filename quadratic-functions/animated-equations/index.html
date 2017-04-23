@@ -1,0 +1,70 @@
+<html>
+<head>
+<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+	<script src='http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenLite.min.js
+	'></script>
+	<script src='http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/CSSPlugin.min.js
+	'></script>
+	<style>
+		body {
+		  background-color:#000;
+		}
+		#demo {
+		  width: auto;
+		  height: 200px;
+		  background-color: #333;
+		  padding: 8px;
+		}
+		#equation {
+		  position: relative;
+		  width: 50%;
+		  height: 60px;
+		  /*
+		  background: #90E500 url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/logo_transparent_1.png) no-repeat;
+		  */
+		  background-position: 0px 4px;
+		  color: transparent;
+		  font-family: Arial, Helvetica, sans-serif;
+		  border-bottom: solid #333 10px;
+		  white-space: nowrap;
+		  display: flex;
+  		  align-items: center;
+  		  justify-content: center;
+		}
+		#equation .term{
+			vertical-align:center;
+		}
+	</style>
+</head>
+<body>
+<div id="demo">
+<!--
+	<div id="logo">
+		<p>GreenSock</p>
+	</div> 
+ -->
+ 	<div>
+	 	<h2 id="equation">
+	 		<i class="term f-of">$$f(x) = $$</i>
+	 		<i class="term co-a"> $$ ax^2 $$ </i>
+	 		<i class="term plus">$$ +$$</i>
+	 		<i class="term co-b">$$bx$$</i>
+	 		<i class="term plus">$$ + $$</i>
+	 		<i class="term co-c">$$c$$</i>
+			$$f(x) = ax^2 + bx +c$$
+		</h2>
+	</div>
+</div>
+<script>
+// self executing function here
+(function() {
+	// your page initialization code here
+   	// the DOM will be available here
+	MathJax.Hub.Register.StartupHook("End",function () {
+		var logo = document.getElementById("equation");
+		TweenLite.to(logo, 1, {left:"30%", color: "white", backgroundColor:"black", borderBottomColor:"#90e500", color:"white"});
+	});
+})();
+</script>
+</body>
+</html>
