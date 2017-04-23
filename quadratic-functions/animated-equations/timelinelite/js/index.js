@@ -13,7 +13,7 @@ var head = $("h1"),
     description = $("#description"),
     terms = $("#terms-wrapper i");
  
-TweenLite.set(content, {visibility:"visible"});
+3.set(content, {visibility:"visible"});
 TweenLite.to(equation, 2, {color: "white", backgroundColor:"black", borderBottomColor:"#90e500"});
 TweenLite.to(terms, 2, {color: "white", backgroundColor:"transparent"});
 
@@ -34,6 +34,7 @@ tl.from(head, 0.5, {left:100, opacity:0})
 .from("i.plus", 0.5, {y:-50, opacity:0}, "+=0.5")
 .from("i.co-c", 0.5, {x:50, opacity:0}, "+=0.5")
 
+//test
 
 //use position parameter "-=0.5" to schedule next tween 0.25 seconds before previous tweens end.
 //great for overlapping
