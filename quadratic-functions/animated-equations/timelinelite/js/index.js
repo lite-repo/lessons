@@ -15,25 +15,34 @@ var head = $("h1"),
  
 TweenLite.set(content, {visibility:"visible"});
 TweenLite.to(equation, 2, {color: "white", backgroundColor:"black", borderBottomColor:"#90e500"});
+TweenLite.to(terms, 2, {color: "white", backgroundColor:"transparent"});
 
 //instantiate a TimelineLite    
 var tl = new TimelineLite();
 
 //add a from() tween at the beginning of the timline
-tl.from(head, 0.5, {left:100, opacity:0});
+tl.from(head, 0.5, {left:100, opacity:0})
 
+.from(subhead, 0.9, {x:-30, opacity:0}, "+=1")
+.from(description, 0.6, {x:30, opacity:0}, "+=1")
 //add another tween immediately after
-tl.from(subhead, 0.5, {left:-100, opacity:0});
 
 //use position parameter "+=0.5" to schedule next tween 0.5 seconds after previous tweens end
-tl.from(feature, 0.5, {scale:.5, autoAlpha:0}, "+=0.5");
+.from("i.f-of", 0.5, {x:-50, opacity:0}, "+=0.5")
+.from("i.co-a", 0.5, {y:50, opacity:0}, "+=0.5")
+.from("i.co-b", 0.5, {y:50, opacity:0}, "+=0.5")
+.from("i.plus", 0.5, {y:-50, opacity:0}, "+=0.5")
+.from("i.co-c", 0.5, {x:50, opacity:0}, "+=0.5")
+
 
 //use position parameter "-=0.5" to schedule next tween 0.25 seconds before previous tweens end.
 //great for overlapping
-tl.from(description, 0.5, {left:100, autoAlpha:0}, "-=0.25");
+//.from(description, 0.5, {left:100, autoAlpha:0}, "-=0.25")
 
-TweenLite.to(terms, 2, {color: "white", backgroundColor:"transparent", borderBottomColor:"#90e500"});
+//TweenLite.to(terms, 2, {color: "transparent", backgroundColor:"transparent", borderBottomColor:"#90e500"});
+//.from("i.f-of", 0.5, {top:100, color:"white"}, "+=0.25");
 
+/*
 //add a label 0.5 seconds later to mark the placement of the next tween
 tl.add("stagger", "+=0.5");
 //to jump to this label use: tl.play("stagger");
@@ -42,6 +51,7 @@ tl.add("stagger", "+=0.5");
 //this tween is added
 tl.staggerFrom(terms, 2, {scale:0, autoAlpha:0}, 0.1, "stagger");
 //tl.staggerFrom($("#nav img"), 0.2, {scale:0, autoAlpha:0}, 0.1, "stagger");
+*/
 
 /* --- Control playback methods --- */
 $("#play").click(function() {
@@ -70,7 +80,7 @@ $("#restart").click(function() {
 
 //when the timeline updates, call the updateSlider function
 tl.eventCallback("onUpdate", updateSlider);
-	
+/*
 $("#slider").slider({
   range: false,
   min: 0,
@@ -82,7 +92,7 @@ $("#slider").slider({
     tl.progress( ui.value/100 );
   }
 });	
-		
+*/	
 function updateSlider() {
   $("#slider").slider("value", tl.progress() *100);
 } 	
