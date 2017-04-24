@@ -6,6 +6,7 @@ body, h1, h2, h3, p {
 
 body {
   background-color:#000;
+  text-align:center;
 }
 
 h1 {
@@ -21,18 +22,14 @@ h2 {
   font-weight: normal;
   color: #cfcfcf;
 }
-.lesson{
-  text-align:center;
-  padding:20px;
-}
 
 
 .example-wrapper {
   width: 600px;
-  height: 350px;
+  height: auto;
   -webkit-font-smoothing: antialiased;
   color: black;
-  margin:auto;
+  margin: 10px auto 10px;  
   background-color: #333;
   padding: 8px;
 }
@@ -101,6 +98,7 @@ h2 {
 button {
   padding: 10px;
   margin-top: 10px;
+  cursor:pointer;
 }
 
 button:nth-child(1){
