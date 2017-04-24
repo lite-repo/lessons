@@ -12,7 +12,8 @@ var head = $("h1"),
     equation = $("#equation"),
     description = $("#description"),
     terms = $("#terms-wrapper i");
- 
+
+TweenLite.set(content, {visibility:"visible"}) 
 TweenLite.to(equation, 2, {color: "white", backgroundColor:"black", borderBottomColor:"#90e500"});
 TweenLite.to(terms, 2, {color: "white", backgroundColor:"transparent"});
 
@@ -23,8 +24,6 @@ var tl = new TimelineLite();
 tl.from(head, 0.5, {left:100, opacity:0})
   .from(subhead, 0.9, {x:-30, opacity:0}, "+=1")
   .from(description, 0.6, {x:30, opacity:0}, "+=1")
-//add another tween immediately after
-//use position parameter "+=0.5" to schedule next tween 0.5 seconds after previous tweens end
   .from("i.f-of", 0.5, {x:-50, opacity:0}, "+=0.5")
   .from("i.co-a", 0.5, {y:50, opacity:0}, "+=0.5")
   .from("i.co-b", 0.5, {y:50, opacity:0}, "+=0.5")
