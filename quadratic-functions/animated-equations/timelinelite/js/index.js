@@ -13,7 +13,6 @@ var head = $("h1"),
     description = $("#description"),
     terms = $("#terms-wrapper i");
  
-3.set(content, {visibility:"visible"});
 TweenLite.to(equation, 2, {color: "white", backgroundColor:"black", borderBottomColor:"#90e500"});
 TweenLite.to(terms, 2, {color: "white", backgroundColor:"transparent"});
 
