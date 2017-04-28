@@ -87,7 +87,7 @@ function updateSlider() {
   $("#slider").slider("value", tl.progress() *100);
 } 	
 
-//tl.progress(1);
+tl.progress(1);
 
 });
 })();
