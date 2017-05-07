@@ -6,6 +6,10 @@
   <link rel='stylesheet prefetch' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
   <link rel="stylesheet" href="css/style.css">
   <script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+
+  <script src="https://wzrd.in/standalone/function-plot@1.17.3"></script>
 
 </head>
 
@@ -13,24 +17,27 @@
 <div class="example-wrapper ">
   <div id="bg"></div>
   <div id="content">
-    <h1>8.) Quadratic Equation</h1>
+    <h1>4.) Take a look at this function:</h1>
 
-    <h2>Finally, we introduce the a general form of a quadratic function:</h2>
+    <h2></h2>
 
     <div id="info">
       <div>
         <h2 id="equation">
-          $$f(x) = ax^2 + bx +c$$
+          $$f(x) = -10.5x^2$$
         </h2>
       </div>
 
-      <p id="description">So we added a term bx. You may think of f(x) as a sum of 2 functions:
-      $$g(x) = ax^2$$ $$h(x) = bx+c$$ $$f(x) = g(x) + h(x)$$</p>
+      <p id="description">
+      QQ Which is narrower?  falling faster?
+      </p>
     </div>
     
   </div>
   <div style="clear:both"></div>
 
+  <div id="graph" style="background-color:white; margin:20px 0px;"></div>
+  <!--
   <div id="terms-wrapper"> 
     <i class="term f-of">$$f(x) = $$</i>
     <i class="term co-a"> $$ ax^2 $$ </i>
@@ -39,6 +46,7 @@
     <i class="term plus">$$ + $$</i>
     <i class="term co-c">$$c$$</i>
   </div>
+  -->
   <div>
     <button id="play">play()</button>
     <button id="pause">pause()</button>
@@ -47,7 +55,7 @@
     <button id="stagger">play("stagger")</button>
     <button id="restart">restart</button>
   </div>
-
+  
   <div id="sliderWrapper">
     <div id="slider"></div>
   </div>
@@ -57,5 +65,16 @@
 <script src='http://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js'></script>
 <script src='http://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/jquery.ui.touch-punch.js'></script>
 <script src="js/index.js"></script>
+<script>
+var options = {
+  target: '#graph',
+  data: [{
+    fn: '-10.5x^2'
+  }]
+};
+
+// initial plot
+functionPlot(options)
+</script>
 </body>
 </html>
