@@ -1,9 +1,10 @@
+$(document).ready(function(){
 // self executing function here
 (function() {
 // your page initialization code here
 // the DOM will be available here
 MathJax.Hub.Register.StartupHook("End",function () {
-    
+
 
 var head = $("h1"),
 	  content = $("#content"),
@@ -13,11 +14,11 @@ var head = $("h1"),
     description = $("#description"),
     terms = $("#terms-wrapper i");
 
-TweenLite.set(content, {visibility:"visible"}) 
+TweenLite.set(content, {visibility:"visible"})
 TweenLite.to(equation, 2, {color: "white", backgroundColor:"black", borderBottomColor:"#90e500"});
 TweenLite.to(terms, 2, {color: "white", backgroundColor:"transparent"});
 
-//instantiate a TimelineLite    
+//instantiate a TimelineLite
 var tl = new TimelineLite();
 
 //add a from() tween at the beginning of the timline
@@ -54,23 +55,23 @@ tl.staggerFrom(terms, 2, {scale:0, autoAlpha:0}, 0.1, "stagger");
 $("#play").click(function() {
 		tl.play();
 });
-		
+
 $("#pause").click(function() {
 		tl.pause();
 });
-		
+
 $("#reverse").click(function() {
 		tl.reverse();
 });
-		
+
 $("#resume").click(function() {
-		tl.resume();	
+		tl.resume();
 });
 
 $("#stagger").click(function() {
-		tl.play("stagger");	
+		tl.play("stagger");
 });
-		
+
 $("#restart").click(function() {
 		tl.restart();
 });
@@ -88,13 +89,14 @@ $("#slider").slider({
     //adjust the timeline's progress() based on slider value
     tl.progress( ui.value/100 );
   }
-});	
+});
 
 function updateSlider() {
   $("#slider").slider("value", tl.progress() *100);
-} 	
+}
 
 //tl.progress(1);
 
 });
 })();
+});
