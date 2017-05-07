@@ -29,7 +29,7 @@ h2 {
   height: auto;
   -webkit-font-smoothing: antialiased;
   color: black;
-  margin: 10px auto 10px;  
+  margin: 10px auto 10px;
   background-color: #333;
 }
 
@@ -94,7 +94,7 @@ h2 {
   text-align:center;
   position: relative;
   margin-right: 20px;
- 
+
 }
 button {
   padding: 10px;
@@ -109,9 +109,15 @@ button:nth-child(1){
 #slider{
   width: 580px;
   margin:10px auto;
-  
+
 }
 
 .ui-widget-content {
   background-color:rgba(255, 255, 255, 0.2);
+}
+
+#return-to-toc{
+  position:absolute;
+  top:0;
+  left:0;
 }
