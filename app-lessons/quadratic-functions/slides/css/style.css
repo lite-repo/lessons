@@ -111,8 +111,8 @@ button:nth-child(1){
   margin:10px auto;
 
 }
-h2 .MathJax_Display,
-p#description .MathJax_Display{
+h2.subheader .MathJax_Display,
+#description .MathJax_Display{
   display:inline-flex !important;
   width:auto;
   margin:0;
