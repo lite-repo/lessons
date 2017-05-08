@@ -35,7 +35,7 @@ h2 {
 
 #equation {
   position: relative;
-  width: 45%;
+  width: 40%;
   height: auto;
   /*
   background: #90E500 url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/logo_transparent_1.png) no-repeat;
@@ -44,11 +44,10 @@ h2 {
   color: transparent;
   font-family: Arial, Helvetica, sans-serif;
   border-bottom: solid #333 10px;
-  display: flex;
   align-items: center;
   justify-content: center;
   float:left;
-  padding: 2px;
+  padding: 10px;
   white-space:normal;
   display:block;
 }
@@ -114,7 +113,8 @@ button:nth-child(1){
 }
 h1 .MathJax_Display,
 h2.subheader .MathJax_Display,
-#description .MathJax_Display{
+p .MathJax_Display,
+#equation .mjax_override .MathJax_Display{
   display:inline-flex !important;
   width:auto;
   margin:0;
