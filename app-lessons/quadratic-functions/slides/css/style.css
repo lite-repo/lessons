@@ -112,7 +112,7 @@ button:nth-child(1){
 
 }
 h2 .MathJax_Display,
-p.description .MathJax_Display{
+p#description .MathJax_Display{
   display:inline-flex !important;
   width:auto;
   margin:0;
