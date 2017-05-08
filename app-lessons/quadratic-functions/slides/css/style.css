@@ -111,6 +111,7 @@ button:nth-child(1){
   margin:10px auto;
 
 }
+h2 .MathJax_Display{display:inline-flex !important; width:auto;}
 
 .ui-widget-content {
   background-color:rgba(255, 255, 255, 0.2);
