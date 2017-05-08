@@ -1,4 +1,3 @@
-$(document).ready(function(){
 // self executing function here
 (function() {
 // your page initialization code here
@@ -79,7 +78,6 @@ $("#restart").click(function() {
 //when the timeline updates, call the updateSlider function
 tl.eventCallback("onUpdate", updateSlider);
 
-
 $("#slider").slider({
   range: false,
   min: 0,
@@ -89,15 +87,14 @@ $("#slider").slider({
     tl.pause();
     //adjust the timeline's progress() based on slider value
     tl.progress( ui.value/100 );
-  }
+    }
 });
 
 function updateSlider() {
   $("#slider").slider("value", tl.progress() *100);
 }
 
-tl.progress(1);
+tl.progress(1)
 
 });
 })();
-});
