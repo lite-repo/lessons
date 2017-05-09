@@ -9,7 +9,7 @@ var head = $("h1"),
 	  content = $("#content"),
     subhead = $("h2"),
     feature = $("#feature"),
-    equation = $("#equation"),
+    equation = $(".equation"),
     description = $("#description"),
     terms = $("#terms-wrapper i");
 

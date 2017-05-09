@@ -37,7 +37,7 @@ h2 {
   padding: 8px;
 }
 
-#equation {
+.equation {
   position: relative;
   width: 45%;
   height: 60px;

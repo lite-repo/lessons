@@ -1,67 +1,57 @@
 <!DOCTYPE html>
 <html >
 <head>
-  <meta charset="UTF-8">
-  <title>Quadratic Function Lesson</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="../css/jquery-ui.css">
+    <meta charset="UTF-8">
+    <title>Quadratic Function Lesson</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/jquery-ui.css">
+    <style>
+    .slide-toggle{
+        cursor:pointer;
+        background-color:lightgray;
+        border-radius:5px;
+        margin-bottom:20px;
+    }
+    .slide-toggle h2{
+      color:black;
+    }
+    .toggle-graph, .slide-toggle {
+      padding: 5px;
+      text-align: center;
+    }
+    .toggle-graph {
+      padding: 50px;
+      display: none;
+    }
+    </style>
 </head>
 <body>
 <button type="button" class="return-to-toc btn btn-default navbar-btn"><a href="../index.html">Return to Table of Contents</a></button>
-
 <div class="example-wrapper ">
-  <div id="bg"></div>
-  <div id="content">
-    <h1>10.) How about this function?</h1>
+    <div id="bg"></div>
+    <div id="content">
+        <h1>10.) Completing the Square</h1>
 
-    <h2></h2>
 
-    <div id="info">
-      <div>
-        <h2 id="equation">
-          $$f(x) = -3x^2 + 4x + 1$$
-        </h2>
-      </div>
+        <div id="info">
+            <div class="equation has-content">
+                <h2>
+                  $$f(x) = -3x^2 + 4x + 1$$
+                </h2>
 
-      <p id="description">
-        So the  graph still has the shape of parabola!
-        This is due to an interesting property of quadratic function
-        which is called "Completing the Square".
-      </p>
+                <button type="button" class="btn btn-primary slide-toggle" href="#"><h2>Now let's see the result of the above function:</h2></button>
+
+                <div class="toggle-graph">
+                    <div id="graph" style="background-color:white; margin:20px 0px;"></div>
+                    <p>
+                      So the  graph still has the shape of parabola!
+                      This is due to an interesting property of quadratic function
+                      which is called "Completing the Square".
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
-
-  </div>
-  <div style="clear:both"></div>
-
-  <div id="graph" style="background-color:white; margin:20px 0px;"></div>
-
-  <p>
-    Does it still look like a parabola? Is it still symmetric?
-    Is it wider or narrower than $$g(x) = ax^2$$?
-    Do the branches extend up or down?
-  </p>
-  <!--
-  <div id="terms-wrapper">
-    <i class="term f-of">$$f(x) = $$</i>
-    <i class="term co-a"> $$ ax^2 $$ </i>
-    <i class="term plus">$$ +$$</i>
-    <i class="term co-b">$$bx$$</i>
-    <i class="term plus">$$ + $$</i>
-    <i class="term co-c">$$c$$</i>
-  </div>
-  -->
-  <div>
-    <button id="play">play()</button>
-    <button id="pause">pause()</button>
-    <button id="reverse">reverse()</button>
-    <button id="resume">resume()</button>
-    <button id="stagger">play("stagger")</button>
-    <button id="restart">restart</button>
-  </div>
-
-  <div id="sliderWrapper">
-    <div id="slider"></div>
-  </div>
 </div>
 <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML-full'></script>
 <script type="text/javascript" src='../js/jquery-3.2.1.min.js'></script>
@@ -77,15 +67,22 @@
 <script type="text/javascript" src='../js/bootstrap/js/bootstrap.min.js'></script>
 <script type="text/javascript" src="./js/index.js"></script>
 <script type="text/javascript">
-var options = {
-  target: '#graph',
-  data: [{
-    fn: '-3x^2 + 4x + 1'
-  }]
-};
 
-// initial plot
-functionPlot(options)
+$(document).ready(function(){
+    $(".slide-toggle").click(function(){
+        $(".toggle-graph").slideToggle("slow");
+    });
+
+    var options = {
+      target: '#graph',
+      data: [{
+        fn: '-3x^2 + 4x + 1'
+      }]
+    };
+
+    // initial plot
+    functionPlot(options);
+});
 </script>
 </body>
 </html>

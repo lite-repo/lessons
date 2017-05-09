@@ -33,7 +33,7 @@ h2 {
   background-color: #333;
 }
 
-#equation {
+.equation {
   position: relative;
   width: 40%;
   height: auto;
@@ -50,6 +50,11 @@ h2 {
   padding: 10px;
   white-space:normal;
   display:block;
+  box-sizing:border-box;
+}
+.equation.has-content{
+  float:none;
+  width:100%;
 }
 #terms-wrapper .term{
   vertical-align:center;
@@ -62,11 +67,11 @@ h2 {
   height: 350px;
 }
 #content {
-  padding-left: 15px;
   visibility: hidden;
+  height:100%;
 }
 #info {
-  margin-top: 20px;
+  margin: 20px;
 }
 #feature {
   position: relative;
@@ -114,7 +119,7 @@ button:nth-child(1){
 h1 .MathJax_Display,
 h2.subheader .MathJax_Display,
 p .MathJax_Display,
-#equation .mjax_override .MathJax_Display{
+.equation .mjax_override .MathJax_Display{
   display:inline-flex !important;
   width:auto;
   margin:0;
