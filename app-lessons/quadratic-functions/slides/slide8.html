@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Quadratic Function Lesson</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/jquery-ui.css">
 </head>
 
@@ -34,16 +34,32 @@
     </div>
 
   </div>
-  <div style="clear:both"></div>
 
+  <div style="clear:both"></div>
+  <style>
+  #terms-wrapper{background-color:black; width:100%;height:200px;position:relative;}
+  i.term.co-a, .co-b, .co-c, .f-of{color:transparent;position:absolute;left:0;bottom:0;}
+  .plus1{top:0;left:200;}
+  .plus2{top:0;left:400;}
+  </style>
   <div id="terms-wrapper">
     <i class="term f-of">$$f(x) = $$</i>
     <i class="term co-a"> $$ ax^2 $$ </i>
-    <i class="term plus">$$ +$$</i>
+    <i class="term plus1">$$ + $$</i>
     <i class="term co-b">$$bx$$</i>
-    <i class="term plus">$$ + $$</i>
+    <i class="term plus2">$$ + $$</i>
     <i class="term co-c">$$c$$</i>
   </div>
+
+  <div>
+    <button id="play">play()</button>
+    <button id="pause">pause()</button>
+    <button id="reverse">reverse()</button>
+    <button id="resume">resume()</button>
+    <button id="stagger">play("stagger")</button>
+    <button id="restart">restart</button>
+  </div>
+  <!--
   <div>
     <button id="play">play()</button>
     <button id="pause">pause()</button>
@@ -55,11 +71,13 @@
   <div id="sliderWrapper">
     <div id="slider"></div>
   </div>
+  -->
 </div>
 <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML-full'></script>
 <script type="text/javascript" src='../js/jquery-3.2.1.min.js'></script>
 <script type="text/javascript" src='../js/jquery-ui.min.js'></script>
 <script type="text/javascript" src='../js/d3.v3.min.js'></script>
+<!--
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
 <script type="text/javascript" src="https://wzrd.in/standalone/function-plot@1.17.3"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/jquery.gsap.min.js"></script>
@@ -67,7 +85,12 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TimelineMax.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenLite.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
+-->
+<script type="text/javascript" src="../js/anime.min.js"></script>
+<script type="text/javascript" src="../js/interact.min.js"></script>
+<script type="text/javascript" src="../js/move.min.js"></script>
 <script type="text/javascript" src='../js/bootstrap/js/bootstrap.min.js'></script>
-<script type="text/javascript" src="./js/index.js"></script>
+<script type="text/javascript" src="../js/index.js"></script>
+
 </body>
 </html>

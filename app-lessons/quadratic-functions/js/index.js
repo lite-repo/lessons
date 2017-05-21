@@ -2,92 +2,38 @@
 (function() {
 // your page initialization code here
 // the DOM will be available here
-MathJax.Hub.Register.StartupHook("End",function () {
+	MathJax.Hub.Register.StartupHook("End",function () {
 
+		$( "#play" ).click(function() {
 
-var head = $("h1"),
-	  content = $("#content"),
-    subhead = $("h2"),
-    feature = $("#feature"),
-    equation = $(".equation"),
-    description = $("#description"),
-    terms = $("#terms-wrapper i");
+			move('.f-of')
+				.set('color','white')
+				.add('margin-left', 150)
+				.add('margin-bottom', 75)
+				.duration('1s')
+				.end(function(){
+					move('.co-a')
+						.set('color','white')
+						.add('margin-left', 250)
+						.add('margin-bottom', 75)
+						.duration('1s')
+						.end(function(){
+							move('.co-b')
+							.set('color','white')
+							.add('margin-left', 350)
+							.add('margin-bottom', 75)
+							.duration('1s')
+							.end(function(){
+								move('.co-c')
+								.set('color','white')
+								.add('margin-left', 450)
+								.add('margin-bottom', 75)
+								.duration('1s')
+								.end();
+							});
+						});
+				});
+		});
 
-TweenLite.set(content, {visibility:"visible"});
-TweenLite.to(equation, 2, {color: "white", backgroundColor:"black", borderBottomColor:"#90e500"});
-
-//instantiate a TimelineLite
-var tl = new TimelineLite();
-
-//add a from() tween at the beginning of the timline
-tl.from(head, 0.5, {left:100, opacity:0});
-
-//add another tween immediately after
-tl.from(subhead, 0.5, {left:-100, opacity:0});
-
-//use position parameter "+=0.5" to schedule next tween 0.5 seconds after previous tweens end
-tl.from(feature, 0.5, {scale:.5, autoAlpha:0}, "+=0.5");
-
-//use position parameter "-=0.5" to schedule next tween 0.25 seconds before previous tweens end.
-//great for overlapping
-tl.from(description, 0.5, {left:100, autoAlpha:0}, "-=0.25");
-
-TweenLite.to(terms, 2, {color: "white", backgroundColor:"transparent", borderBottomColor:"#90e500"});
-
-//add a label 0.5 seconds later to mark the placement of the next tween
-tl.add("stagger", "+=0.5");
-//to jump to this label use: tl.play("stagger");
-
-//stagger the animation of all icons with 0.1s between each tween's start time
-//this tween is added
-tl.staggerFrom(terms, 2, {scale:0, autoAlpha:0}, 0.1, "stagger");
-//tl.staggerFrom($("#nav img"), 0.2, {scale:0, autoAlpha:0}, 0.1, "stagger");
-
-/* --- Control playback methods --- */
-$("#play").click(function() {
-		tl.play();
-});
-
-$("#pause").click(function() {
-		tl.pause();
-});
-
-$("#reverse").click(function() {
-		tl.reverse();
-});
-
-$("#resume").click(function() {
-		tl.resume();
-});
-
-$("#stagger").click(function() {
-		tl.play("stagger");
-});
-
-$("#restart").click(function() {
-		tl.restart();
-});
-
-//when the timeline updates, call the updateSlider function
-tl.eventCallback("onUpdate", updateSlider);
-
-$("#slider").slider({
-  range: false,
-  min: 0,
-  max: 100,
-  step:.1,
-  slide: function ( event, ui ) {
-    tl.pause();
-    //adjust the timeline's progress() based on slider value
-    tl.progress( ui.value/100 );
-    }
-});
-
-function updateSlider() {
-  $("#slider").slider("value", tl.progress() *100);
-}
-
-tl.progress(1)
-
-});
+	});
 })();
