@@ -9,13 +9,48 @@
 <style>
 </style>
 <body>
-<button type="button" class="return-to-toc btn btn-default navbar-btn"><a href="../index.html">Return to Table of Contents</a></button>
-
+  <!-- Sidebar -->
+  <div id="sidebar-wrapper">
+      <ul id="sidebar_menu" class="sidebar-nav">
+           <li class="sidebar-brand">
+              <a href="javascript:void(0)" id="menu">
+                  <img alt="" src="../icons/lessons.svg" class="nav-title__icon open" onclick="openNav()">
+                  <img style="display:none;" alt="" src="../icons/close.svg" onclick="closeNav()" class="nav-title__icon close">
+              </a>
+           </li>
+      </ul>
+  </div>
+  <!-- Overlay -->
+  <div id="overlay-nav" class="overlay">
+    <div class="overlay-content">
+      <ul>
+        <li><h2>Topics:</h2></li>
+        <li><a target="_blank" class="active" href="#">Quadratic Functions &nbsp;›</a></li>
+        <li><a target="_blank" href="#">Linear Functions</a></li>
+        <li><a target="_blank" href="#">Numbers</a></li>
+        <li><a target="_blank" href="#">Algebra</a></li>
+        <li><a target="_blank" href="#">Limits</a></li>
+    </ul>
+      <ul>
+        <li><h2>Lessons:</h2></li>
+        <li><a target="_blank" href="slide1.html">1.) Simplest Quadratic Function</a></li>
+        <li><a target="_blank" href="slide2.html">2.) General Quadratic Function</a></li>
+        <li><a target="_blank" href="slide3.html">3.) Negative Example 1</a></li>
+        <li><a target="_blank" href="slide4.html">4.) Negative Example 2</a></li>
+        <li><a target="_blank" href="slide5.html">5.) Coefficient "a"</a></li>
+        <li><a target="_blank" href="slide6.html">6.) Adding a constant "c"</a></li>
+        <li><a target="_blank" href="slide7.html">7.) Changing "s" in the graph</a></li>
+        <li><a target="_blank" href="slide8.html">8.) Introducing the quadratic function</a></li>
+        <li><a target="_blank" href="slide9.html">9.) Consider a linear function</a></li>
+        <li><a target="_blank" href="slide10.html">10.) Completing the square</a></li>
+    </ul>
+    </div>
+  </div>
+  <!-- Main Content -->
 <div class="example-wrapper ">
   <div id="bg"></div>
   <div id="content">
-    <h1>1.) The simplest Quadratic function has the form:
-</h1>
+    <h1>1.) The simplest Quadratic function has the form:</h1>
 
     <h2 class="subheader">We will just multiply $$x^2$$ by a constant number. </h2>
 
@@ -47,6 +82,11 @@
 
   <div id="sliderWrapper">
     <div id="slider"></div>
+  </div>
+
+  <div class="prev-next">
+      <a class="prev-next__element prev-next__element--prev btn btn--link btn--lg" href="../index.html">‹&nbsp;Previous</a>
+      <a class="prev-next__element prev-next__element--next btn btn--default btn--lg btn--wide" href="./slide2.html">Next<span class="prev-next__extended">: General Quadratic Function</span>&nbsp;›</a>
   </div>
 </div>
 <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML-full'></script>
