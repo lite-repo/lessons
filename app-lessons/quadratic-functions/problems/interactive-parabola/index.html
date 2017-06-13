@@ -1,0 +1,277 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PerfectMath: Parabolas</title>
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <style>
+      .small-10 {
+        width:20%;
+      }
+      .small-2 {
+        width:7%;
+
+      }
+      #sliderOutput1{
+        text-align:center;
+      }
+      .slider-handle {
+        background: transparent url(fan.png);
+        height: 48px;
+        width: 50px;
+      }
+    </style>
+
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/mathjs/3.12.0/math.min.js"></script>
+
+    <!-- load http://maurizzzio.github.io/function-plot/ -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script src="https://wzrd.in/standalone/function-plot@1.14.0"></script>
+
+  </head>
+  <body>
+
+  <!-- This is slider #1 -->
+  <div class="small-10 columns">
+    <div class="slider" id="slider1" data-slider data-initial-start="1" data-options="start: 1; end: 10; step:0.1" onchange="storeSliderValue()">
+      <span class="slider-handle"  id="slider-handle1" data-slider-handle role="slider" tabindex="1" aria-controls="sliderOutput1"></span>
+      <span class="slider-fill" data-slider-fill></span>
+    </div>
+  </div>
+  <div class="small-2 columns">
+    <input class="sliderValue" type="number" id="sliderOutput1" onchange="storeSliderValue()">
+  </div>
+
+  <!-- End of slider #1 -->
+
+  <!-- This is slider #2-->
+
+  <div class="small-10 columns">
+    <div class="slider" id="slider2" data-slider data-initial-start="1" data-options="start: 1; end: 10; step:0.1" onchange="storeSliderValue()">
+      <span class="slider-handle" id="slider-handle2" data-slider-handle role="slider" tabindex="1" aria-controls="sliderOutput2"></span>
+      <span class="slider-fill" data-slider-fill></span>
+    </div>
+  </div>
+  <div class="small-2 columns">
+    <input class="sliderValue" type="number" id="sliderOutput2" onchange="storeSliderValue()">
+  </div>
+
+  <!-- End of slider #2 -->
+
+  <!-- This is slider #3-->
+
+  <div class="small-10 columns">
+    <div class="slider" id="slider3" data-slider data-initial-start="1" data-options="start: 1; end: 10; step:0.1" onchange="storeSliderValue()">
+      <span class="slider-handle" id="slider-handle3" data-slider-handle role="slider" tabindex="1" aria-controls="sliderOutput3"></span>
+      <span class="slider-fill" data-slider-fill></span>
+    </div>
+  </div>
+  <div class="small-2 columns">
+    <input class="sliderValue" type="number" id="sliderOutput3" onchange="storeSliderValue()">
+  </div>
+
+  <!-- End of slider #3 -->
+
+  <!-- This is a function plotter -->
+  <form id="form">
+    <label for="eq">Here is a parabola</label>
+    <input type="text" id="eq" value="x^2 + x + 1" />
+  </form>
+
+  <div id="plot"></div>
+
+  <!-- End of function plotter -->
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
+
+  <script>
+
+    $(document).ready(function(){
+
+      /* localStorage.setItem('quadraticEquation', 'x^2 + x + 1'); */
+
+    });
+
+    function draw() {
+      try {
+        functionPlot({
+          target: '#plot',
+          grid: true,
+          xAxis: {
+            label: 'X-AXIS'
+          },
+          xLine: true,
+          tip: {
+            xLine: true,    // dashed line parallel to y = 0
+            yLine: true,    // dashed line parallel to x = 0
+            renderer: function (x, y, index) {
+              // the returning value will be shown in the tip
+            }
+          },
+          data: [{
+            fn: document.getElementById('eq').value,
+            sampler: 'builtIn',  // this will make function-plot use the evaluator of math.js
+            graphType: 'polyline'
+          }]
+        });
+      }
+      catch (err) {
+        console.log(err);
+        alert(err);
+      }
+    }
+    draw();
+
+    /*
+
+    Equation will be of the form ax^2 + bc + c
+
+    Localstorage will store variables for each of the
+
+    x^2, x, and c (constant) terms and as key-value pairs
+
+     */
+
+    currentCoefficients = {
+      "x2": "1",
+      "x": "1",
+      "c": "1"
+    };
+
+    $('#slider1').on('moved.zf.slider', function(){
+      var valueOfSlider1 = $(this).children('#slider-handle1').attr('aria-valuenow');
+      console.log('valueOfSlider1 = ' + valueOfSlider1);
+      currentCoefficients.x2 = valueOfSlider1;
+
+      var eqVar = $('#eq').val();
+      console.log('the value of #eq is: ' + eqVar);
+
+      console.log('The value of currentCoefficients is: ' + currentCoefficients);
+      var newEquation = currentCoefficients.x2 + 'x^2 + ' + currentCoefficients.x + 'x + ' + currentCoefficients.c;
+      console.log('newEquation is: ' + newEquation);
+      $('#eq').text(newEquation).attr(newEquation);
+
+      if (valueOfSlider1 > 1){
+        $('#eq').val();
+      } else {
+        newEquation = 'x^2 + ' + currentCoefficients.x + 'x + ' + currentCoefficients.c;
+      }
+
+      var valueOfEq = $("#eq").val();
+
+      console.log(valueOfEq);
+
+
+
+
+      /* var currentQuadraticEquation = localStorage.getItem('quadraticEquation'); */
+
+
+
+      /* This code is for special case where coefficient is set to one,
+         and you don't want to display 1*coefficient in the equation
+
+
+      if (valueOfSlider1 > 1){
+        $('#eq').val();
+      } else {
+        $('#eq').text("")
+      }
+
+       */
+
+
+      /* console.log('currentQuadraticEquation = ' + currentQuadraticEquation); */
+
+      /*
+
+      var coefficients = JSON.parse(localStorage.quadraticEquation);
+      for (var i = 0; i < quadraticEquation.length; i++) {
+        if(inputName === persons[i].name){  //look for match with name
+          persons[i].age += 2;  //add two
+          break;  //exit loop since you found the person
+        }
+      }
+      localStorage.setItem("persons", JSON.stringify(persons)); */
+
+       //put the object back
+
+      /*
+        changing single key-value pair in Json
+
+       */
+
+
+
+      setTimeout(function(){
+        $('#eq').val(newEquation);
+        draw();
+      }, 1);
+    });
+
+    $('#slider2').on('moved.zf.slider', function(){
+      var valueOfSlider2 = $(this).children('#slider-handle2').attr('aria-valuenow');
+      console.log('valueOfSlider2 = ' + valueOfSlider2);
+      var newEquation2 = 'x^2 + ' + valueOfSlider2 + 'x + 1';
+
+      currentCoefficients.x = valueOfSlider2;
+
+      var eqVar2 = $('#eq').val();
+      console.log('the value of #eq is: ' + eqVar2);
+
+      console.log('The value of currentCoefficients is: ' + currentCoefficients);
+      var newEquation2 = currentCoefficients.x2 + 'x^2 + ' + currentCoefficients.x + 'x + ' + currentCoefficients.c;
+      console.log('newEquation is: ' + newEquation2);
+      $('#eq').text(newEquation2).attr(newEquation2);
+
+      if (valueOfSlider2 > 1){
+        $('#eq').val();
+      } else {
+        newEquation2 = currentCoefficients.x2 + 'x^2 + ' + 'x + ' + currentCoefficients.c;
+      }
+
+
+      setTimeout(function(){
+        $('#eq').val(newEquation2);
+        draw();
+      }, 1);
+    });
+
+    $('#slider3').on('moved.zf.slider', function(){
+      var valueOfSlider3 = $(this).children('#slider-handle3').attr('aria-valuenow');
+      console.log('valueOfSlider3 = ' + valueOfSlider3);
+      var newEquation3 = currentCoefficients.x2 + 'x^2 + ' + currentCoefficients.x + 'x + ' + valueOfSlider3 + ' ' ;
+
+      currentCoefficients.c = valueOfSlider3;
+
+
+
+      setTimeout(function(){
+        $('#eq').val(newEquation3);
+        draw();
+      }, 1);
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+
+  </body>
+</html>
