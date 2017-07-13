@@ -30,7 +30,7 @@ ul{
 }
 
 /*Table of Contents*/
-.lesson .example-wrapper{margin-top:10px;}
+.lesson .example-wrapper, .lesson .wrapper{margin-top:10px;}
 .lesson #content{visibility:visible; height:400px;padding:10px;margin:10px;}
 .lesson #description{float:none; margin:auto; width:100%; text-align:center;}
 .lesson p { margin-bottom:50px; }
@@ -42,7 +42,12 @@ ul{
 .button{
   cursor:pointer;
 }
-.example-wrapper {
+
+.loading-indicator-wrapper{
+  background-color:lightblue !important;
+}
+
+.example-wrapper, .wrapper{
   width: 600px;
   height: auto;
   -webkit-font-smoothing: antialiased;
