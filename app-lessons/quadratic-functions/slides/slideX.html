@@ -84,6 +84,13 @@ $(document).ready(function(){
                     fn: 'ax^2 + c'
                 }]
             });
+            functionPlot({
+                target: '#graph7',
+                disableZoom: true,
+                data: [{
+                    fn: 'a(x+s)^2 + c'
+                }]
+            });
             /*
             functionPlot({
                 target: '#graph6',
@@ -295,6 +302,34 @@ $(document).ready(function(){
   <h2 style="margin: 40px 0px; color:red;">TODO: Graph to go here. Fix ax^2 + c graph.</h2>
   <!--
   <div id="graph6" style="background-color:white; margin:20px 0px;"></div>
+  -->
+</div>
+
+<!-- Main Content -->
+<div class="wrapper ">
+  <div id="bg"></div>
+  <div id="content">
+    <h1>7.) Look at this function</h1>
+
+    <h2>Now we look at the following function:</h2>
+    <h2 style="margin: 40px 0px; color:red;">TODO: Integrate 2x2csliders</h2>
+
+    <div id="info">
+      <div>
+        <h2 class="equation">
+          $$a(x+s)^2 + c$$
+        </h2>
+      </div>
+
+      <p id="description">
+        When $$s$$ changes how was the graph affected? Roots? Symmetry? Min/Max?
+      </p>
+    </div>
+  </div>
+  <div style="clear:both"></div>
+  <h2 style="margin: 40px 0px; color:red;">TODO: Graph to go here. Fix a(x+s)^2 + c graph.</h2>
+  <!--
+  <div id="graph7" style="background-color:white; margin:20px 0px;"></div>
   -->
 </div>
 

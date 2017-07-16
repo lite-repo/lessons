@@ -76,18 +76,18 @@ $(document).ready(function(){
 						});
 
 						//when the timeline updates, call the updateSlider function
-						tl.eventCallback("onUpdate", updateSlider);
+						//tl.eventCallback("onUpdate", updateSlider);
 
 						$("#slider").slider({
-						  range: false,
-						  min: 0,
-						  max: 100,
-						  step:.1,
-						  slide: function ( event, ui ) {
-						    tl.pause();
-						    //adjust the timeline's progress() based on slider value
-						    tl.progress( ui.value/100 );
-						  }
+							  range: false,
+							  min: 0,
+							  max: 100,
+							  step:.1,
+							  slide: function ( event, ui ) {
+							    tl.pause();
+							    //adjust the timeline's progress() based on slider value
+							    tl.progress( ui.value/100 );
+							  }
 						});
 
 						function updateSlider() {
