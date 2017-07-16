@@ -12,25 +12,30 @@ $(document).ready(function(){
 						    feature = $("#feature"),
 						    equation = $("#equation"),
 						    description = $("#description"),
-						    terms = $("#terms-wrapper i");
+								terms = $("#terms-wrapper i");
 
 						TweenLite.set(content, {visibility:"visible"})
 						TweenLite.to(equation, 2, {color: "white", backgroundColor:"black", borderBottomColor:"#90e500"});
+						TweenLite.to(terms, 2, {color: "white", backgroundColor:"transparent"});
+						*/
+						var terms = $("#terms-wrapper i");
 						TweenLite.to(terms, 2, {color: "white", backgroundColor:"transparent"});
 
 						//instantiate a TimelineLite
 						var tl = new TimelineLite();
 
 						//add a from() tween at the beginning of the timline
+						/*
 						tl.from(head, 0.5, {left:100, opacity:0})
 						  .from(subhead, 0.9, {x:-30, opacity:0}, "+=1")
 						  .from(description, 0.6, {x:30, opacity:0}, "+=1")
-						  .from("i.f-of", 0.5, {x:-50, opacity:0}, "+=0.5")
+							*/
+						tl.from("i.f-of", 0.5, {x:-50, opacity:0}, "+=0.5")
 						  .from("i.co-a", 0.5, {y:50, opacity:0}, "+=0.5")
 						  .from("i.co-b", 0.5, {y:50, opacity:0}, "+=0.5")
 						  .from("i.plus", 0.5, {y:-50, opacity:0}, "+=0.5")
 						  .from("i.co-c", 0.5, {x:50, opacity:0}, "+=0.5");
-						*/
+
 						//test
 
 						//use position parameter "-=0.5" to schedule next tween 0.25 seconds before previous tweens end.
