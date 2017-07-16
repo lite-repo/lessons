@@ -6,6 +6,11 @@
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/jquery-ui.css">
   <link href="../css/jquery.loading-indicator.css" type="text/css" rel="stylesheet"/>
+  <style>
+  .loading-indicator-wrapper{
+      position:fixed;
+  }
+  </style>
 </head>
 
   <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML-full'></script>
@@ -70,6 +75,13 @@ $(document).ready(function(){
                 disableZoom: true,
                 data: [{
                     fn: 'ax^2'
+                }]
+            });
+            functionPlot({
+                target: '#graph6',
+                disableZoom: true,
+                data: [{
+                    fn: 'ax^2 + c'
                 }]
             });
             /*
@@ -231,7 +243,7 @@ $(document).ready(function(){
   <div id="content">
     <h1>5.) Let us look at the form of quadratic function $$f(x) = ax^2$$ for different values of coefficient a:</h1>
 
-    <h2></h2>
+      <h2 style="margin: 40px 0px; color:red;">TODO: Integrate 1x2slider</h2>
 
     <div id="info">
       <div>
@@ -250,15 +262,19 @@ $(document).ready(function(){
   </div>
   <div style="clear:both"></div>
 
+  <h2 style="margin: 40px 0px; color:red;">TODO: Graph to go here. Fix ax^2 graph.</h2>
+  <!--
   <div id="graph5" style="background-color:white; margin:20px 0px;"></div>
+  -->
 </div>
-<!--
-<div class="wrapper ">
+
+<!-- Main Content -->
+<div class="wrapper">
   <div id="bg"></div>
   <div id="content">
     <h1>6.) Now we add a constant to the function:</h1>
 
-    <h2></h2>
+    <h2 style="margin: 40px 0px; color:red;">TODO: Integrate 2x2csliders</h2>
 
     <div id="info">
       <div>
@@ -276,10 +292,12 @@ $(document).ready(function(){
 
   </div>
   <div style="clear:both"></div>
-
+  <h2 style="margin: 40px 0px; color:red;">TODO: Graph to go here. Fix ax^2 + c graph.</h2>
+  <!--
   <div id="graph6" style="background-color:white; margin:20px 0px;"></div>
+  -->
 </div>
--->
+
 <script type="text/javascript" src="../js/index.js"></script>
 </body>
 </html>

@@ -5,6 +5,7 @@ $(document).ready(function(){
 				// your page initialization code here
 				// the DOM will be available here
 				MathJax.Hub.Register.StartupHook("End",function () {
+						/*
 						var head = $("h1"),
 							  content = $("#content"),
 						    subhead = $("h2.equation"),
@@ -29,7 +30,7 @@ $(document).ready(function(){
 						  .from("i.co-b", 0.5, {y:50, opacity:0}, "+=0.5")
 						  .from("i.plus", 0.5, {y:-50, opacity:0}, "+=0.5")
 						  .from("i.co-c", 0.5, {x:50, opacity:0}, "+=0.5");
-
+						*/
 						//test
 
 						//use position parameter "-=0.5" to schedule next tween 0.25 seconds before previous tweens end.
