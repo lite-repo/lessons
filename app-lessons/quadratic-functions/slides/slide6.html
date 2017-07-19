@@ -6,6 +6,8 @@
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/jquery-ui.css">
   <link rel="stylesheet" href="../css/foundation.css">
+  <link href="../css/jquery.loading-indicator.css" type="text/css" rel="stylesheet"/>
+
   <style>
     body { background-color: #3498DB; }
     h1 {
@@ -165,23 +167,32 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
 <script type="text/javascript" src='../js/bootstrap/js/bootstrap.min.js'></script>
 <script type="text/javascript" src="../js/index.js"></script>
-
 <script src="../js/graphs-js/vendor/jquery.js"></script>
 <script src="../js/graphs-js/vendor/what-input.js"></script>
 <script src="../js/graphs-js/vendor/foundation.js"></script>
 <script src="../js/graphs-js/app.js"></script>
 <script type="text/javascript" src="../js/2x2csliders.js"></script>
+<script type="text/javascript" src="../js/jquery.loading-indicator.js"></script>
 
 <script>
-var options = {
-  target: '#graph',
-  data: [{
-    fn: 'ax^2 +c'
-  }]
-};
+$(document).ready(function(){
+    //$("body").loadingIndicator();
+    //var loader = $('body').data('loadingIndicator');
+    //window.onscroll = function () { window.scrollTo(0, 0); };
+    var loader = $('body').loadingIndicator({
+					useImage: false,
+				}).data("loadingIndicator");
 
-// initial plot
-functionPlot(options)
+    var options = {
+      target: '#graph',
+      data: [{
+        fn: 'ax^2 +c'
+      }]
+    };
+    MathJax.Hub.Register.StartupHook("End",function () {
+        loader.hide();
+    });
+});
 </script>
 </body>
 </html>

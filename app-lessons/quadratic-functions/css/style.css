@@ -45,6 +45,7 @@ ul{
 
 .loading-indicator-wrapper{
   background-color:lightblue !important;
+  position:fixed !important;
 }
 
 .example-wrapper, .wrapper{
