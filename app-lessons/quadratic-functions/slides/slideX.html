@@ -23,6 +23,9 @@
       font-size:22px;
       color:white;
     }
+    .subheader {
+      color:white;
+    }
   </style>
 </head>
 
@@ -134,6 +137,7 @@ $(document).ready(function(){
 <script src="../js/graphs-js/vendor/foundation.js"></script>
 <script src="../js/graphs-js/app.js"></script>
 <script type="text/javascript" src="../js/1x2slider.js"></script>
+<script type="text/javascript" src="../js/2x2csliders.js"></script>
 
 <body>
   <!-- Sidebar -->
@@ -179,7 +183,7 @@ $(document).ready(function(){
   <div id="content">
     <h1>1.) The simplest Quadratic function has the form:</h1>
 
-    <h2 class="subheader">We will just look at $$x^2$$ </h2>
+    <h2 class="subheader">Lets' look at $$x^2$$ </h2>
 
     <div id="info">
       <div>
@@ -189,7 +193,7 @@ $(document).ready(function(){
       </div>
 
       <p id="description">
-        Let's explore the properties of this function  by looking at its graph .
+        Let's explore the properties of this function by looking at its graph.
       </p>
     </div>
 
@@ -310,6 +314,7 @@ $(document).ready(function(){
       <input class="sliderValue" type="number" id="sliderOutput1" onchange="storeSliderValue()">
   </div>
   <!-- End of slider #1 -->
+  <div style="clear:both"></div>
 
   <!-- This is a function plotter -->
   <form id="form">
@@ -347,6 +352,44 @@ $(document).ready(function(){
 
   </div>
   <div style="clear:both"></div>
+
+  <!-- This is slider #1 -->
+  <div class="small-10 columns">
+      <div class="slider" id="slider1" data-slider data-initial-start="1" data-options="start: 1; end: 10; step:0.1" onchange="storeSliderValue()">
+          <span class="slider-handle"  id="slider-handle1" data-slider-handle role="slider" tabindex="1" aria-controls="sliderOutput1"></span>
+          <span class="slider-fill" data-slider-fill></span>
+      </div>
+  </div>
+  <div class="small-2 columns">
+      <input class="sliderValue" type="number" id="sliderOutput1" onchange="storeSliderValue()">
+  </div>
+
+  <!-- End of slider #1 -->
+
+
+  <!-- This is slider #3-->
+
+  <div class="small-10 columns">
+      <div class="slider" id="slider3" data-slider data-initial-start="1" data-options="start: 1; end: 10; step:0.1" onchange="storeSliderValue()">
+          <span class="slider-handle" id="slider-handle3" data-slider-handle role="slider" tabindex="1" aria-controls="sliderOutput3"></span>
+          <span class="slider-fill" data-slider-fill></span>
+      </div>
+  </div>
+  <div class="small-2 columns">
+      <input class="sliderValue" type="number" id="sliderOutput3" onchange="storeSliderValue()">
+  </div>
+
+  <!-- End of slider #3 -->
+  <div style="clear:both"></div>
+
+  <!-- This is a function plotter -->
+  <form id="form">
+      <label for="eq">Here is a parabola</label>
+      <input type="text" id="eq" value="x^2 + 1" />
+  </form>
+
+  <div id="plot1" style="background-color:white; margin:20px 0px;"></div>
+
   <h2 style="margin: 40px 0px; color:red;">TODO: Graph to go here. Fix ax^2 + c graph.</h2>
   <!--
   <div id="graph6" style="background-color:white; margin:20px 0px;"></div>

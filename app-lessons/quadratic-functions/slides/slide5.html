@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="../css/jquery-ui.css">
   <link rel="stylesheet" href="../css/foundation.css">
   <link rel="stylesheet" href="../css/graph-slider.css">
+  <link href="../css/jquery.loading-indicator.css" type="text/css" rel="stylesheet"/>
+
   <style>
     body { background-color: #3498DB; }
     h1 {
@@ -159,16 +161,28 @@
 <script src="../js/graphs-js/vendor/what-input.js"></script>
 <script src="../js/graphs-js/vendor/foundation.js"></script>
 <script src="../js/graphs-js/app.js"></script>
-<script>
-var options = {
-  target: '#graph',
-  data: [{
-    fn: 'ax^2'
-  }]
-};
+<script type="text/javascript" src="../js/jquery.loading-indicator.js"></script>
 
-// initial plot
-functionPlot(options)
+<script>
+$(document).ready(function(){
+    //$("body").loadingIndicator();
+    //var loader = $('body').data('loadingIndicator');
+    //window.onscroll = function () { window.scrollTo(0, 0); };
+    var loader = $('body').loadingIndicator({
+					useImage: false,
+				}).data("loadingIndicator");
+
+    var options = {
+      target: '#graph',
+      data: [{
+        fn: 'ax^2'
+      }]
+    };
+    MathJax.Hub.Register.StartupHook("End",function () {
+        loader.hide();
+    });
+});
+
 </script>
 </body>
 </html>
