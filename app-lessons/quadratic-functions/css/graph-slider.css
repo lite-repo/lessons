@@ -1,0 +1,14 @@
+.small-10 {
+    /*width:20%;*/
+}
+.small-2 {
+    /*width:7%;*/
+}
+#sliderOutput1{
+    text-align:center;
+}
+.slider-handle {
+    background: transparent url(../icons/fan.png);
+    height: 48px;
+    width: 50px;
+}

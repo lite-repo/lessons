@@ -79,6 +79,26 @@ ul{
   float:none;
   width:100%;
 }
+.slide-toggle{
+    cursor:pointer;
+    background-color:lightgray;
+    border-radius:5px;
+    margin-bottom:20px;
+}
+.slide-toggle h2{
+  color:black;
+}
+.toggle-graph, .slide-toggle {
+  padding: 5px;
+  text-align: center;
+}
+.toggle-graph {
+  padding: 50px;
+  display: none;
+}
+.loading-indicator-wrapper{
+    position:fixed;
+}
 #terms-wrapper .term{
   vertical-align:center;
   color:white;

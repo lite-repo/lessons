@@ -6,7 +6,7 @@
  *  Made by Zeno Rocha
  *  Under MIT License
  */
-;(function ( $, window, document, undefined ) {
+(function ( $, window, document, undefined ) {
 		// Defaults
 		var pluginName = "loadingIndicator",
 				defaults = {

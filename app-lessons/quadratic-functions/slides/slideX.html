@@ -2,14 +2,27 @@
 <html >
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quadratic Function Lesson</title>
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/jquery-ui.css">
   <link href="../css/jquery.loading-indicator.css" type="text/css" rel="stylesheet"/>
+  <link rel="stylesheet" href="../css/app.css">
+  <link rel="stylesheet" href="../css/foundation.css">
+  <link rel="stylesheet" href="../css/graph-slider.css">
   <style>
-  .loading-indicator-wrapper{
-      position:fixed;
-  }
+    body { background-color: #3498DB; }
+    h1 {
+      position: relative;
+      margin-top: 10px;
+      font-size: 36px;
+      font-weight: normal;
+      color: white;
+    }
+    h2{
+      font-size:22px;
+      color:white;
+    }
   </style>
 </head>
 
@@ -24,23 +37,29 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TimelineMax.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenLite.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
-  <script type="text/javascript" src='../js/bootstrap/js/bootstrap.min.js'></script>
+  <script type="text/javascript" src="../js/bootstrap/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="../js/jquery.loading-indicator.js"></script>
 <script>
 $(document).ready(function(){
     //$("body").loadingIndicator();
     //var loader = $('body').data('loadingIndicator');
     //window.onscroll = function () { window.scrollTo(0, 0); };
+    /*
     var loader = $('body').loadingIndicator({
 					useImage: false,
 				}).data("loadingIndicator");
+    */
     //$('body').data('loadingIndicator');
 		// self executing function here
 		(function() {
 				// your page initialization code here
 				// the DOM will be available here
 				MathJax.Hub.Register.StartupHook("End",function () {
-            loader.hide();
+            //loader.hide();
+
+            $(".slide-toggle").click(function(){
+                $(".toggle-graph").slideToggle("slow");
+            });
 
             functionPlot({
                 target: '#graph1',
@@ -91,19 +110,31 @@ $(document).ready(function(){
                     fn: 'a(x+s)^2 + c'
                 }]
             });
-            /*
             functionPlot({
-                target: '#graph6',
+                target: '#graph9',
                 disableZoom: true,
                 data: [{
-                    fn: 'ax^2 + c'
+                    fn: '3x + 1'
                 }]
             });
-            */
+            functionPlot({
+                target: '#graph10',
+                disableZoom: true,
+                data: [{
+                    fn: '-3x^2 + 4x + 1'
+                }]
+            });
         });
     })();
 });
 </script>
+
+<script src="../js/graphs-js/vendor/jquery.js"></script>
+<script src="../js/graphs-js/vendor/what-input.js"></script>
+<script src="../js/graphs-js/vendor/foundation.js"></script>
+<script src="../js/graphs-js/app.js"></script>
+<script type="text/javascript" src="../js/1x2slider.js"></script>
+
 <body>
   <!-- Sidebar -->
   <div id="sidebar-wrapper">
@@ -250,8 +281,6 @@ $(document).ready(function(){
   <div id="content">
     <h1>5.) Let us look at the form of quadratic function $$f(x) = ax^2$$ for different values of coefficient a:</h1>
 
-      <h2 style="margin: 40px 0px; color:red;">TODO: Integrate 1x2slider</h2>
-
     <div id="info">
       <div>
         <h2 class="equation">
@@ -269,7 +298,26 @@ $(document).ready(function(){
   </div>
   <div style="clear:both"></div>
 
-  <h2 style="margin: 40px 0px; color:red;">TODO: Graph to go here. Fix ax^2 graph.</h2>
+
+  <!-- This is slider #1 -->
+  <div class="small-10 columns">
+      <div class="slider" id="slider1" data-slider data-initial-start="1" data-options="start: 1; end: 10; step:0.1" onchange="storeSliderValue()">
+          <span class="slider-handle"  id="slider-handle1" data-slider-handle role="slider" tabindex="1" aria-controls="sliderOutput1"></span>
+          <span class="slider-fill" data-slider-fill></span>
+      </div>
+  </div>
+  <div class="small-2 columns">
+      <input class="sliderValue" type="number" id="sliderOutput1" onchange="storeSliderValue()">
+  </div>
+  <!-- End of slider #1 -->
+
+  <!-- This is a function plotter -->
+  <form id="form">
+      <label for="eq">Here is a parabola</label>
+      <input type="text" id="eq" value="x^2" />
+  </form>
+
+  <div id="plot" style="background-color:white; margin:20px 0px;"></div>
   <!--
   <div id="graph5" style="background-color:white; margin:20px 0px;"></div>
   -->
@@ -368,11 +416,22 @@ $(document).ready(function(){
     <i class="term co-c">$$c$$</i>
   </div>
 
-  <!--
-  <div id="graph8" style="background-color:white; margin:20px 0px;"></div>
-  -->
+  <div>
+    <button id="play">play()</button>
+    <button id="pause">pause()</button>
+    <button id="reverse">reverse()</button>
+    <button id="resume">resume()</button>
+    <button id="stagger">play("stagger")</button>
+    <button id="restart">restart</button>
+  </div>
+
+  <div id="sliderWrapper">
+    <div id="slider"></div>
+  </div>
 </div>
-<div class="example-wrapper ">
+
+<div class="wrapper">
+  <script type="text/javascript" src='../js/jquery-ui.min.js'></script>
   <div id="bg"></div>
   <div id="content">
     <h1>9.) Consider the following</h1>
@@ -396,41 +455,41 @@ $(document).ready(function(){
   </div>
   <div style="clear:both"></div>
 
-  <div id="graph" style="background-color:white; margin:20px 0px;"></div>
+  <div id="graph9" style="background-color:white; margin:20px 0px;"></div>
 
   <p>
     Does it still look like a parabola? Is it still symmetric? Is it wider or narrower than $$g(x) = ax^2$$?
     Do the branches extend up or down?
   </p>
-  <!--
-  <div id="terms-wrapper">
-    <i class="term f-of">$$f(x) = $$</i>
-    <i class="term co-a"> $$ ax^2 $$ </i>
-    <i class="term plus">$$ +$$</i>
-    <i class="term co-b">$$bx$$</i>
-    <i class="term plus">$$ + $$</i>
-    <i class="term co-c">$$c$$</i>
-  </div>
-  -->
-  <div>
-    <button id="play">play()</button>
-    <button id="pause">pause()</button>
-    <button id="reverse">reverse()</button>
-    <button id="resume">resume()</button>
-    <button id="stagger">play("stagger")</button>
-    <button id="restart">restart</button>
-  </div>
+</div>
 
-  <div id="sliderWrapper">
-    <div id="slider"></div>
-  </div>
+<div class="wrapper">
+    <div id="bg"></div>
+    <div id="content">
+        <h1>10.) Completing the Square</h1>
 
-  <div class="prev-next">
-      <a class="prev-next__element prev-next__element--prev btn btn--link btn--lg" href="./slide8.html">‹&nbsp;Previous</a>
-      <a class="prev-next__element prev-next__element--next btn btn--default btn--lg btn--wide" href="./slide10.html">Next<span class="prev-next__extended">: Completing the square</span>&nbsp;›</a>
-  </div>
+        <div id="info">
+            <div class="equation has-content">
+                <h2>
+                  $$f(x) = -3x^2 + 4x + 1$$
+                </h2>
+
+                <button type="button" class="btn btn-primary slide-toggle" href="#"><h2>Now let's see the result of the above function:</h2></button>
+
+                <div class="toggle-graph">
+                    <div id="graph10" style="background-color:white; margin:20px 0px;"></div>
+                    <p>
+                      So the  graph still has the shape of parabola!
+                      This is due to an interesting property of quadratic function
+                      which is called "Completing the Square".
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script type="text/javascript" src="../js/index.js"></script>
+
 </body>
 </html>
