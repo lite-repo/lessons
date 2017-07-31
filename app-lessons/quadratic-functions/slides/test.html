@@ -30,7 +30,7 @@
 <div class="example-wrapper ">
   <div id="bg"></div>
   <div id="content">
-    <h1>Lets look at the form of quadratic function $$f(x) = ax^2$$ for different values of coefficient a:</h1>
+    <h1>Lets look at $$f(x) = ax^2$$:</h1>
 
     <h2></h2>
 
@@ -42,10 +42,7 @@
       </div>
 
       <p id="description">
-      When $$a > 0$$, parabola branches are extending ______ (up or down).<br/>
-      When $$a < 0$$, parabola branches are extending ______ (up or down).<br/>
-      What happens when $$a = 0$$?<br/>
-      What happens when the value of $$a$$ increases in absolute value? Does the parabola get wider or narrower?
+          What happens when the value of $$a$$ increases in absolute value? Does the parabola get wider or narrower?
       </p>
     </div>
 
@@ -54,8 +51,8 @@
 
   <!-- This is slider #1 -->
   <div class="small-10 columns">
-      <div class="slider" id="slider1" data-slider data-initial-start="1" data-options="start: 1; end: 10; step:0.1" onchange="storeSliderValue()">
-          <span class="slider-handle"  id="slider-handle1" data-slider-handle role="slider" tabindex="1" aria-controls="sliderOutput1"></span>
+      <div class="slider slider1" data-slider data-initial-start="1" data-options="start: 1; end: 10; step:0.1" onchange="storeSliderValue()">
+          <span class="slider-handle slider-handle1" data-slider-handle role="slider" tabindex="1" aria-controls="sliderOutput1"></span>
           <span class="slider-fill" data-slider-fill></span>
       </div>
   </div>
@@ -69,12 +66,13 @@
   <!-- This is a function plotter -->
   <form id="form">
 
-      <label for="eq">Here is a parabola:</label>
+      <label>Here is a parabola:</label>
       <!--<input type="text" id="eq" value="x^2 + x + 1" />-->
-      <input type="text" id="eq" value="x^2" />
-  </form>
+      <input type="text" class="eq" value="x^2" />
 
-  <div id="plot" style="background-color:white; margin:20px 0px;"></div>
+      <div id="plot" style="background-color:white; margin:20px 0px;"></div>
+
+  </form>
 
 </div>
 <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML-full'></script>
@@ -90,7 +88,6 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
 <script type="text/javascript" src='../js/bootstrap/js/bootstrap.min.js'></script>
 <script type="text/javascript" src="../js/index.js"></script>
-<script type="text/javascript" src="../js/1x2slider.js"></script>
 <script src="../js/graphs-js/vendor/jquery.js"></script>
 <script src="../js/graphs-js/vendor/what-input.js"></script>
 <script src="../js/graphs-js/vendor/foundation.js"></script>
