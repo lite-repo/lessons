@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <link rel="stylesheet" type="text/css" href="rzslider.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="angular-slider-style.css">
+    <title>angular slider example</title>
+</head>
+
+<body>
+
+    <script src="angular.min.js"></script>
+    <script src="ui-bootstrap-tpls.js"></script>
+    <script src="rzslider.js"></script>
+    <script src="angular-slider.js"></script>
+    <div ng-app="rzSliderDemo">
+        <div ng-controller="MainCtrl" class="wrapper">
+
+            <article>
+                <h2>Simple slider</h2>
+                Model:
+                <input type="number" ng-model="minSlider.value" />
+                <br/>
+                <rzslider rz-slider-model="minSlider.value"></rzslider>
+            </article>
+            <article>
+                <h2>Range slider</h2>
+                Min Value:
+                <input type="number" ng-model="minRangeSlider.minValue" />
+                <br/>Max Value:
+                <input type="number" ng-model="minRangeSlider.maxValue" />
+                <br/>
+                <rzslider rz-slider-model="minRangeSlider.minValue" rz-slider-high="minRangeSlider.maxValue" rz-slider-options="minRangeSlider.options"></rzslider>
+            </article>
+            <article>
+                <h2>Slider with visible selection bar</h2>
+
+                <rzslider rz-slider-model="slider_visible_bar.value" rz-slider-options="slider_visible_bar.options"></rzslider>
+            </article>
+
+            <article>
+                <h2>Slider with dynamic selection bar colors</h2>
+                <rzslider rz-slider-model="color_slider_bar.value" rz-slider-options="color_slider_bar.options"></rzslider>
+            </article>
+        </div>
+    </div>
+</body>
+
+</html>
